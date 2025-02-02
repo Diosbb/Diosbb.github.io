@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Indice</title>
+</head>
+<style type="text/css">
+	body{
+		text-align: center;
+	}
+	* {
+		  margin: 0;
+		  padding: 0;
+		  box-sizing: border-box;
+	}
+	select {
+	  width: 100px;
+	  font-size: 15px;
+	  border-radius: 15px;
+	}
+
+	.caja {
+	  width: 420px;
+	  height: auto;
+	  background: #4e4d4d;
+	  margin: auto;
+	  margin-top: 10px;
+	  box-shadow: 7px 13px 37px #000;
+	  padding: 20px 30px;
+	  border-top: 4px solid #017bab;
+	  color: white;
+	}
+	select {
+	  width: 100%; 
+	  padding: 10px;
+	  font-size: 16px;
+	  background: #252323; 
+	  color: white;
+	  border: 1px solid #017bab; 
+	  border-radius: 5px;
+	  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+	  cursor: pointer;
+	}
+	select {
+    max-height: 200px; /* Limita la altura del desplegable */
+    overflow-y: auto;  /* Habilita el scroll si el contenido es mayor que la altura */
+  }
+
+
+	select:hover {
+	  background: #333;
+	}
+
+	select:focus {
+
+	  outline: none;
+	  border-color: #00bfff;
+	  box-shadow: 0px 0px 8px rgba(0, 191, 255, 0.8);
+	}
+
+	/* Opciones dentro del select */
+	option {
+	  background: #4e4d4d;
+	  color: white;
+	}
+	div{
+		padding-top: 80px;
+		border:none;
+	}
+	#opciones{
+		padding-top: 50px;
+	}
+
+</style>
+<body>
+	<section class="caja">
+
+      <label for="seleccion">Elige una opción:</label>
+      <select id="seleccion" >
+      	<option value="" selected disabled>Selecciona un motivo...</option>
+        <script>
+          let select = document.getElementById("seleccion");
+          for (let i = 1; i <= 200; i++) {
+            let option = document.createElement("option");
+            option.value = i;
+            option.textContent = "Motivo " + i;
+            select.appendChild(option);
+          }
+        </script>
+      </select>
+    </section>
+    <p id="opciones">Has seleccionado: Ninguno</p>
+
+    <script>
+      document.getElementById("seleccion").addEventListener("change", function() {
+  let textoSeleccionado = this.options[this.selectedIndex].text;
+
+  switch(textoSeleccionado) {
+    case "Motivo 1":
+      opciones.textContent = "Te amo por tu sonrisa";
+      break;
+    case "Motivo 2":
+      opciones.textContent = "Te amo por tus ojos";
+      break;
+    case "Motivo 3":
+      opciones.textContent = "Te amo por tus pestañas";
+      break;
+    case "Motivo 4":
+      opciones.textContent = "Te amo por tu cabello chino";
+      break;
+    case "Motivo 5":
+      opciones.textContent = "Te amo por como eres con las personas";
+      break;
+    case "Motivo 6":
+      opciones.textContent = "Te amo por tu amor al kpop";
+      break;
+    case "Motivo 7":
+      opciones.textContent = "Te amo por tu gusto al gris";
+      break;
+    case "Motivo 8":
+      opciones.textContent = "Te amo por tu gusto al arte";
+      break;
+    case "Motivo 9":
+      opciones.textContent = "Te amo por ser maestra";
+      break;
+    case "Motivo 10":
+      opciones.textContent = "Te amo por poder entenderme";
+      break;
+    case "Motivo 11":
+      opciones.textContent = "Te amo por cada detalle que me has dado";
+      break;
+    case "Motivo 12":
+      opciones.textContent = "Te amo por tu personalidad tan linda";
+      break;
+    case "Motivo 13":
+      opciones.textContent = "Te amo por tus ganas de superarte";
+      break;
+    case "Motivo 14":
+      opciones.textContent = "Te amo por que sin ti la vida no es la misma";
+      break;
+    case "Motivo 15":
+      opciones.textContent = "Te amo por cada uno de tus lunares";
+      break;
+    case "Motivo 16":
+      opciones.textContent = "Te amo por cada vez que hablas de tu infancia";
+      break;
+    case "Motivo 17":
+      opciones.textContent = "Te amo por enseñarme que el sushi sabe rico";
+      break;
+    case "Motivo 18":
+      opciones.textContent = "Te amo por cada cancion que encuetro en ti";
+      break;
+    case "Motivo 19":
+      opciones.textContent = "Te amo por tu lindo color de piel canela";
+      break;
+    case "Motivo 20":
+      opciones.textContent = "Te amo por tu forma de emocionarte";
+      break;
+    case "Motivo 21":
+      opciones.textContent = "Te amo por tu gusto a los hongos";
+      break;
+    case "Motivo 22":
+      opciones.textContent = "Te amo por tu obsecion por los lichis";
+      break;
+    case "Motivo 23":
+      opciones.textContent = "Te amo por tu ";
+      break;
+    case "Motivo 24":
+      
+      break;
+    case "Motivo 25":
+      // Razón del Motivo 25
+      break;
+    case "Motivo 26":
+      // Razón del Motivo 26
+      break;
+    case "Motivo 27":
+      // Razón del Motivo 27
+      break;
+    case "Motivo 28":
+      // Razón del Motivo 28
+      break;
+    case "Motivo 29":
+      // Razón del Motivo 29
+      break;
+    case "Motivo 30":
+      // Razón del Motivo 30
+      break;
+    case "Motivo 31":
+      // Razón del Motivo 31
+      break;
+    case "Motivo 32":
+      // Razón del Motivo 32
+      break;
+    case "Motivo 33":
+      // Razón del Motivo 33
+      break;
+    case "Motivo 34":
+      // Razón del Motivo 34
+      break;
+    case "Motivo 35":
+      // Razón del Motivo 35
+      break;
+    case "Motivo 36":
+      // Razón del Motivo 36
+      break;
+    case "Motivo 37":
+      // Razón del Motivo 37
+      break;
+    case "Motivo 38":
+      // Razón del Motivo 38
+      break;
+    case "Motivo 39":
+      // Razón del Motivo 39
+      break;
+    case "Motivo 40":
+      // Razón del Motivo 40
+      break;
+    case "Motivo 41":
+      // Razón del Motivo 41
+      break;
+    case "Motivo 42":
+      // Razón del Motivo 42
+      break;
+    case "Motivo 43":
+      // Razón del Motivo 43
+      break;
+    case "Motivo 44":
+      // Razón del Motivo 44
+      break;
+    case "Motivo 45":
+      // Razón del Motivo 45
+      break;
+    case "Motivo 46":
+      // Razón del Motivo 46
+      break;
+    case "Motivo 47":
+      // Razón del Motivo 47
+      break;
+    case "Motivo 48":
+      // Razón del Motivo 48
+      break;
+    case "Motivo 49":
+      // Razón del Motivo 49
+      break;
+    case "Motivo 50":
+      // Razón del Motivo 50
+      break;
+    case "Motivo 51":
+      // Razón del Motivo 51
+      break;
+    case "Motivo 52":
+      // Razón del Motivo 52
+      break;
+    case "Motivo 53":
+      // Razón del Motivo 53
+      break;
+    case "Motivo 54":
+      // Razón del Motivo 54
+      break;
+    case "Motivo 55":
+      // Razón del Motivo 55
+      break;
+    case "Motivo 56":
+      // Razón del Motivo 56
+      break;
+    case "Motivo 57":
+      // Razón del Motivo 57
+      break;
+    case "Motivo 58":
+      // Razón del Motivo 58
+      break;
+    case "Motivo 59":
+      // Razón del Motivo 59
+      break;
+    case "Motivo 60":
+      // Razón del Motivo 60
+      break;
+    case "Motivo 61":
+      // Razón del Motivo 61
+      break;
+    case "Motivo 62":
+      // Razón del Motivo 62
+      break;
+    case "Motivo 63":
+      // Razón del Motivo 63
+      break;
+    case "Motivo 64":
+      // Razón del Motivo 64
+      break;
+    case "Motivo 65":
+      // Razón del Motivo 65
+      break;
+    case "Motivo 66":
+      // Razón del Motivo 66
+      break;
+    case "Motivo 67":
+      // Razón del Motivo 67
+      break;
+    case "Motivo 68":
+      // Razón del Motivo 68
+      break;
+    case "Motivo 69":
+      // Razón del Motivo 69
+      break;
+    case "Motivo 70":
+      // Razón del Motivo 70
+      break;
+    case "Motivo 71":
+      // Razón del Motivo 71
+      break;
+    case "Motivo 72":
+      // Razón del Motivo 72
+      break;
+    case "Motivo 73":
+      // Razón del Motivo 73
+      break;
+    case "Motivo 74":
+      // Razón del Motivo 74
+      break;
+    case "Motivo 75":
+      // Razón del Motivo 75
+      break;
+    case "Motivo 76":
+      // Razón del Motivo 76
+      break;
+    case "Motivo 77":
+      // Razón del Motivo 77
+      break;
+    case "Motivo 78":
+      // Razón del Motivo 78
+      break;
+    case "Motivo 79":
+      // Razón del Motivo 79
+      break;
+    case "Motivo 80":
+      // Razón del Motivo 80
+      break;
+    case "Motivo 81":
+      // Razón del Motivo 81
+      break;
+    case "Motivo 82":
+      // Razón del Motivo 82
+      break;
+    case "Motivo 83":
+      // Razón del Motivo 83
+      break;
+    case "Motivo 84":
+      // Razón del Motivo 84
+      break;
+    case "Motivo 85":
+      // Razón del Motivo 85
+      break;
+    case "Motivo 86":
+      // Razón del Motivo 86
+      break;
+    case "Motivo 87":
+      // Razón del Motivo 87
+      break;
+    case "Motivo 88":
+      // Razón del Motivo 88
+      break;
+    case "Motivo 89":
+      // Razón del Motivo 89
+      break;
+    case "Motivo 90":
+      // Razón del Motivo 90
+      break;
+    case "Motivo 91":
+      // Razón del Motivo 91
+      break;
+    case "Motivo 92":
+      // Razón del Motivo 92
+      break;
+    case "Motivo 93":
+      // Razón del Motivo 93
+      break;
+    case "Motivo 94":
+      // Razón del Motivo 94
+      break;
+    case "Motivo 95":
+      // Razón del Motivo 95
+      break;
+    case "Motivo 96":
+      // Razón del Motivo 96
+      break;
+    case "Motivo 97":
+      // Razón del Motivo 97
+      break;
+    case "Motivo 98":
+      // Razón del Motivo 98
+      break;
+    case "Motivo 99":
+      // Razón del Motivo 99
+      break;
+    case "Motivo 100":
+      // Razón del Motivo 100
+      break;
+    case "Motivo 101":
+      // Razón del Motivo 101
+      break;
+    case "Motivo 102":
+      // Razón del Motivo 102
+      break;
+    case "Motivo 103":
+      // Razón del Motivo 103
+      break;
+    case "Motivo 104":
+      // Razón del Motivo 104
+      break;
+    case "Motivo 105":
+      // Razón del Motivo 105
+      break;
+    case "Motivo 106":
+      // Razón del Motivo 106
+      break;
+    case "Motivo 107":
+      // Razón del Motivo 107
+      break;
+    case "Motivo 108":
+      // Razón del Motivo 108
+      break;
+    case "Motivo 109":
+      // Razón del Motivo 109
+      break;
+    case "Motivo 110":
+      // Razón del Motivo 110
+      break;
+    case "Motivo 111":
+      // Razón del Motivo 111
+      break;
+    case "Motivo 112":
+      // Razón del Motivo 112
+      break;
+    case "Motivo 113":
+      // Razón del Motivo 113
+      break;
+    case "Motivo 114":
+      // Razón del Motivo 114
+      break;
+    case "Motivo 115":
+      // Razón del Motivo 115
+      break;
+    case "Motivo 116":
+      // Razón del Motivo 116
+      break;
+    case "Motivo 117":
+      // Razón del Motivo 117
+      break;
+    case "Motivo 118":
+      // Razón del Motivo 118
+      break;
+    case "Motivo 119":
+      // Razón del Motivo 119
+      break;
+    case "Motivo 120":
+      // Razón del Motivo 120
+      break;
+    case "Motivo 121":
+      // Razón del Motivo 121
+      break;
+    case "Motivo 122":
+      // Razón del Motivo 122
+      break;
+    case "Motivo 123":
+      // Razón del Motivo 123
+      break;
+    case "Motivo 124":
+      // Razón del Motivo 124
+      break;
+    case "Motivo 125":
+      // Razón del Motivo 125
+      break;
+    case "Motivo 126":
+      // Razón del Motivo 126
+      break;
+    case "Motivo 127":
+      // Razón del Motivo 127
+      break;
+    case "Motivo 128":
+      // Razón del Motivo 128
+      break;
+    case "Motivo 129":
+      // Razón del Motivo 129
+      break;
+    case "Motivo 130":
+      // Razón del Motivo 130
+      break;
+    case "Motivo 131":
+      // Razón del Motivo 131
+      break;
+    case "Motivo 132":
+      // Razón del Motivo 132
+      break;
+    case "Motivo 133":
+      // Razón del Motivo 133
+      break;
+    case "Motivo 134":
+      // Razón del Motivo 134
+      break;
+    case "Motivo 135":
+      // Razón del Motivo 135
+      break;
+    case "Motivo 136":
+      // Razón del Motivo 136
+      break;
+    case "Motivo 137":
+      // Razón del Motivo 137
+      break;
+    case "Motivo 138":
+      // Razón del Motivo 138
+      break;
+    case "Motivo 139":
+      // Razón del Motivo 139
+      break;
+    case "Motivo 140":
+      // Razón del Motivo 140
+      break;
+    case "Motivo 141":
+      // Razón del Motivo 141
+      break;
+    case "Motivo 142":
+      // Razón del Motivo 142
+      break;
+    case "Motivo 143":
+      // Razón del Motivo 143
+      break;
+    case "Motivo 144":
+      // Razón del Motivo 144
+      break;
+    case "Motivo 145":
+      // Razón del Motivo 145
+      break;
+    case "Motivo 146":
+      // Razón del Motivo 146
+      break;
+    case "Motivo 147":
+      // Razón del Motivo 147
+      break;
+    case "Motivo 148":
+      // Razón del Motivo 148
+      break;
+    case "Motivo 149":
+      // Razón del Motivo 149
+      break;
+    case "Motivo 150":
+      // Razón del Motivo 150
+      break;
+    case "Motivo 151":
+      // Razón del Motivo 151
+      break;
+    case "Motivo 152":
+      // Razón del Motivo 152
+      break;
+    case "Motivo 153":
+      // Razón del Motivo 153
+      break;
+    case "Motivo 154":
+      // Razón del Motivo 154
+      break;
+    case "Motivo 155":
+      // Razón del Motivo 155
+      break;
+    case "Motivo 156":
+      // Razón del Motivo 156
+      break;
+    case "Motivo 157":
+      // Razón del Motivo 157
+      break;
+    case "Motivo 158":
+      // Razón del Motivo 158
+      break;
+    case "Motivo 159":
+      // Razón del Motivo 159
+      break;
+    case "Motivo 160":
+      // Razón del Motivo 160
+      break;
+    case "Motivo 161":
+      // Razón del Motivo 161
+      break;
+    case "Motivo 162":
+      // Razón del Motivo 162
+      break;
+    case "Motivo 163":
+      // Razón del Motivo 163
+      break;
+    case "Motivo 164":
+      // Razón del Motivo 164
+      break;
+    case "Motivo 165":
+      // Razón del Motivo 165
+      break;
+    case "Motivo 166":
+      // Razón del Motivo 166
+      break;
+    case "Motivo 167":
+      // Razón del Motivo 167
+      break;
+    case "Motivo 168":
+      // Razón del Motivo 168
+      break;
+    case "Motivo 169":
+      // Razón del Motivo 169
+      break;
+    case "Motivo 170":
+      // Razón del Motivo 170
+      break;
+    case "Motivo 171":
+      // Razón del Motivo 171
+      break;
+    case "Motivo 172":
+      // Razón del Motivo 172
+      break;
+    case "Motivo 173":
+      // Razón del Motivo 173
+      break;
+    case "Motivo 174":
+      // Razón del Motivo 174
+      break;
+    case "Motivo 175":
+      // Razón del Motivo 175
+      break;
+    case "Motivo 176":
+      // Razón del Motivo 176
+      break;
+    case "Motivo 177":
+      // Razón del Motivo 177
+      break;
+    case "Motivo 178":
+      // Razón del Motivo 178
+      break;
+    case "Motivo 179":
+      // Razón del Motivo 179
+      break;
+    case "Motivo 180":
+      // Razón del Motivo 180
+      break;
+    case "Motivo 181":
+      // Razón del Motivo 181
+      break;
+    case "Motivo 182":
+      // Razón del Motivo 182
+      break;
+    case "Motivo 183":
+      // Razón del Motivo 183
+      break;
+    case "Motivo 184":
+      // Razón del Motivo 184
+      break;
+    case "Motivo 185":
+      // Razón del Motivo 185
+      break;
+    case "Motivo 186":
+      // Razón del Motivo 186
+      break;
+    case "Motivo 187":
+      // Razón del Motivo 187
+      break;
+    case "Motivo 188":
+      // Razón del Motivo 188
+      break;
+    case "Motivo 189":
+      // Razón del Motivo 189
+      break;
+    case "Motivo 190":
+      // Razón del Motivo 190
+      break;
+    case "Motivo 191":
+      // Razón del Motivo 191
+      break;
+    case "Motivo 192":
+      // Razón del Motivo 192
+      break;
+    case "Motivo 193":
+      // Razón del Motivo 193
+      break;
+    case "Motivo 194":
+      // Razón del Motivo 194
+      break;
+    case "Motivo 195":
+      // Razón del Motivo 195
+      break;
+    case "Motivo 196":
+      // Razón del Motivo 196
+      break;
+    case "Motivo 197":
+      // Razón del Motivo 197
+      break;
+    case "Motivo 198":
+      // Razón del Motivo 198
+      break;
+    case "Motivo 199":
+      // Razón del Motivo 199
+      break;
+    case "Motivo 200":
+      opciones.textContent = "Te amo por tu forma tan unica de amarme y no, no hay ni una razon para irme, no quiero irme, nunca quise hacerlo, peroname por hacerlo y esta bien si ya no me queires en tu vida, lo entiendo y lo acepto, pero necesitaba que supieras esto, perdon por cada una de las cosas que te dije estando enojado, por cada una de mis acciones que fueron impulsivas, por todas las citas que arruine por no mezclar entornos, por cada vez que te quite las ganas de amarme, por cada vez que te hice llorar, por todas y cada una de las cosas que alguna vez te hicieron sentir insegura, por todas las veces que te grite, por las veces que justifique mis actos, por todas las cosas que hice y hago mal, trato de cambiar dia con dia, solo para poder oirte decir que me amas otra vez, necesito tu amor, te necesito a ti, sin ti mi vida sencillamente no tiene colores, no tiene risas, no es nada igual, y no quiero a nadie mas, nadie es como tu, tu siempre seras tu y esa es la ultima razon de esta lista, te amo por que eres tu, cada detalle de ti lo amo por que eso hace a sandra, por que eso eres tu. Te amo y perdon";
+      break;
+    default:
+      console.log("Opción no válida");
+      break;
+  }
+});
+
+    </script>
+
+</body>
+</html>
