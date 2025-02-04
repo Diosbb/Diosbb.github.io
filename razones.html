@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Indice</title>
+</head>
+<style type="text/css">
+	body{
+    background-image: url('https://www.dropbox.com/scl/fi/wfzys7bl2euin0chtdlxb/sandra.JPG?rlkey=5hb4j758yu4chmdnw7fhtbpwq&st=yxvnitca&raw=1');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+		text-align: center;
+	}
+	* {
+		  margin: 0;
+		  padding: 0;
+		  box-sizing: border-box;
+	}
+	select {
+	  width: 100px;
+	  font-size: 15px;
+	  border-radius: 15px;
+	}
+
+	.caja {
+	  width: 420px;
+	  height: auto;
+	  background: #4e4d4d;
+	  margin: auto;
+	  margin-top: 10px;
+	  box-shadow: 7px 13px 37px #000;
+	  padding: 20px 30px;
+	  border-top: 4px solid #017bab;
+	  color: white;
+	}
+	select {
+	  width: 100%; 
+	  padding: 10px;
+	  font-size: 16px;
+	  background: #252323; 
+	  color: white;
+	  border: 1px solid #017bab; 
+	  border-radius: 5px;
+	  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+	  cursor: pointer;
+	}
+	select {
+    max-height: 200px; /* Limita la altura del desplegable */
+    overflow-y: auto;  /* Habilita el scroll si el contenido es mayor que la altura */
+  }
+
+
+	select:hover {
+	  background: #333;
+	}
+
+	select:focus {
+
+	  outline: none;
+	  border-color: #00bfff;
+	  box-shadow: 0px 0px 8px rgba(0, 191, 255, 0.8);
+	}
+
+	/* Opciones dentro del select */
+	option {
+	  background: #4e4d4d;
+	  color: white;
+	}
+	div{
+		padding-top: 80px;
+		border:none;
+	}
+	#opciones{
+    font-family: monospace;
+    width: 420px;
+    height: auto;
+    background: #e5e1e3;
+    margin: auto;
+    margin-top: 10px;
+    box-shadow: 7px 13px 37px #000;
+    padding: 20px 30px;
+    border-top: 4px solid #017bab;
+    color: black;
+		
+	}
+
+</style>
+<body>
+	<section class="caja">
+
+      <label for="seleccion">Elige una opción:</label><br><br>
+      <select id="seleccion" >
+      	<option value="" selected disabled>Selecciona un motivo...</option>
+        <script>
+          let select = document.getElementById("seleccion");
+          for (let i = 1; i <= 200; i++) {
+            let option = document.createElement("option");
+            option.value = i;
+            option.textContent = "Motivo " + i;
+            select.appendChild(option);
+          }
+        </script>
+      </select>
+    </section>
+    <p id="opciones">Has seleccionado: Ninguno</p>
+
+    <script>
+      document.getElementById("seleccion").addEventListener("change", function() {
+  let textoSeleccionado = this.options[this.selectedIndex].text;
+
+  switch(textoSeleccionado) {
+    case "Motivo 1":
+      opciones.textContent = "Te amo por tu sonrisa";
+      break;
+    case "Motivo 2":
+      opciones.textContent = "Te amo por tus ojos";
+      break;
+    case "Motivo 3":
+      opciones.textContent = "Te amo por tus pestañas";
+      break;
+    case "Motivo 4":
+      opciones.textContent = "Te amo por tu cabello chino";
+      break;
+    case "Motivo 5":
+      opciones.textContent = "Te amo por como eres con las personas";
+      break;
+    case "Motivo 6":
+      opciones.textContent = "Te amo por tu amor al kpop";
+      break;
+    case "Motivo 7":
+      opciones.textContent = "Te amo por tu gusto al gris";
+      break;
+    case "Motivo 8":
+      opciones.textContent = "Te amo por tu gusto al arte";
+      break;
+    case "Motivo 9":
+      opciones.textContent = "Te amo por ser maestra";
+      break;
+    case "Motivo 10":
+      opciones.textContent = "Te amo por poder entenderme";
+      break;
+    case "Motivo 11":
+      opciones.textContent = "Te amo por cada detalle que me has dado";
+      break;
+    case "Motivo 12":
+      opciones.textContent = "Te amo por tu personalidad tan linda";
+      break;
+    case "Motivo 13":
+      opciones.textContent = "Te amo por tus ganas de superarte";
+      break;
+    case "Motivo 14":
+      opciones.textContent = "Te amo porque sin ti la vida no es la misma";
+      break;
+    case "Motivo 15":
+      opciones.textContent = "Te amo por cada uno de tus lunares";
+      break;
+    case "Motivo 16":
+      opciones.textContent = "Te amo por cada vez que hablas de tu infancia";
+      break;
+    case "Motivo 17":
+      opciones.textContent = "Te amo por enseñarme que el sushi sabe rico";
+      break;
+    case "Motivo 18":
+      opciones.textContent = "Te amo por cada cancion que encuetro en ti";
+      break;
+    case "Motivo 19":
+      opciones.textContent = "Te amo por tu lindo color de piel canela";
+      break;
+    case "Motivo 20":
+      opciones.textContent = "Te amo por tu forma de emocionarte";
+      break;
+    case "Motivo 21":
+      opciones.textContent = "Te amo por tu gusto a los hongos";
+      break;
+    case "Motivo 22":
+      opciones.textContent = "Te amo por tu obsecion por los lichis";
+      break;
+    case "Motivo 23":
+      opciones.textContent = "Te amo por tu sutilesa al hablar";
+      break;
+    case "Motivo 24":
+      opciones.textContent = "Te amo por tus lindas marcas en tu espalda";
+      break;
+    case "Motivo 25":
+      opciones.textContent = "Te amo por como eres cuando te enojas";
+      break;
+    case "Motivo 26":
+      opciones.textContent = "Te amo por tus lindos apuntes";
+      break;
+    case "Motivo 27":
+      opciones.textContent = "Te amo por tus nuevos apuntes en tablet";
+      break;
+    case "Motivo 28":
+      opciones.textContent = "Te amo por las veces que te esforzaste en planear una cita";
+      break;
+    case "Motivo 29":
+      opciones.textContent = "Te amo por apoyarme siempre";
+      break;
+    case "Motivo 30":
+      opciones.textContent = "Te amo por corregirme siempre";
+      break;
+    case "Motivo 31":
+      opciones.textContent = "Te amo por tu forma de ver la vida";
+      break;
+    case "Motivo 32":
+      opciones.textContent = "Te amo por todos los dias que me abrazaste";
+      break;
+    case "Motivo 33":
+      opciones.textContent = "Te amo por todos las beses que me besaste";
+      break;
+    case "Motivo 34":
+      opciones.textContent = "Te amo por las veces que dormimos juntos";
+      break;
+    case "Motivo 35":
+      opciones.textContent = "Te amo por la forma en la que me mirabas";
+      break;
+    case "Motivo 36":
+      opciones.textContent = "Te amo porque eres el color de mi vida";
+      break;
+    case "Motivo 37":
+      opciones.textContent = "Te amo por tu forma tan unica de expresar tu cariño";
+      break;
+    case "Motivo 38":
+      opciones.textContent = "Te amo cada que entrenas tae";
+      break;
+    case "Motivo 39":
+      opciones.textContent = "Te amo sin importar las lesiones que tengas";
+      break;
+    case "Motivo 40":
+      opciones.textContent = "Te amo por cada vez que subes mas el pie";
+      break;
+    case "Motivo 41":
+      opciones.textContent = "Te amo por el tiempo que me diste";
+      break;
+    case "Motivo 42":
+      opciones.textContent = "Te amo por la vida que compartimos";
+      break;
+    case "Motivo 43":
+      opciones.textContent = "Te amo por cada historia que me contaste";
+      break;
+    case "Motivo 44":
+      opciones.textContent = "Te amo por las veces que me abrazaste dormido";
+      break;
+    case "Motivo 45":
+      opciones.textContent = "Te amo por estar para mi";
+      break;
+    case "Motivo 46":
+      opciones.textContent = "Te amo por cada dia que pasamos juntos";
+      break;
+    case "Motivo 47":
+      opciones.textContent = "Te amo por cada junta que me esperaste";
+      break;
+    case "Motivo 48":
+      opciones.textContent = "Te amo por cada patito que me diste";
+      break;
+    case "Motivo 49":
+      opciones.textContent = "Te amo por el mudkip que me diste";
+      break;
+    case "Motivo 50":
+      opciones.textContent = "Te amo por la sudadera de pato";
+      break;
+    case "Motivo 51":
+      opciones.textContent = "Te amo por el short de pato";
+      break;
+    case "Motivo 52":
+      opciones.textContent = "Te amo por la playera de mi cumpleaños";
+      break;
+    case "Motivo 53":
+      opciones.textContent = "Te amo por el zhongli";
+      break;
+    case "Motivo 54":
+      opciones.textContent = "Te amo por el apa y lo que dice atras del apa";
+      break;
+    case "Motivo 55":
+      opciones.textContent = "Te amo por las flores de papel";
+      break;
+    case "Motivo 56":
+      opciones.textContent = "Te amo por los stickers de patitos";
+      break;
+    case "Motivo 57":
+      opciones.textContent = "Te amo por los legos que compartimos";
+      break;
+    case "Motivo 58":
+      opciones.textContent = "Te amo por los patitos en el sube y baja";
+      break;
+    case "Motivo 59":
+      opciones.textContent = "Te amo por los patitos de llavero que me diste";
+      break;
+    case "Motivo 60":
+      opciones.textContent = "Te amo por los anillos que me diste";
+      break;
+    case "Motivo 61":
+      opciones.textContent = "Te amo por el dibujo del conejo para el mejor novio :(( de verdad te extraño tanto";
+      break;
+    case "Motivo 62":
+      opciones.textContent = "Te amo por hacer tu examen de cinta negra conmigo";
+      break;
+    case "Motivo 63":
+      opciones.textContent = "Te amo por cada segundo que compartiste conmigo";
+      break;
+    case "Motivo 64":
+      opciones.textContent = "Te amo por hacerme mas humano";
+      break;
+    case "Motivo 65":
+      opciones.textContent = "Te amo por tus lindos labios";
+      break;
+    case "Motivo 66":
+      opciones.textContent = "Te amo por tus lindos cachetes";
+      break;
+    case "Motivo 67":
+      opciones.textContent = "Te amo por todos tus voz";
+      break;
+    case "Motivo 68":
+      opciones.textContent = "Te amo por todas las experiencias que compartimos";
+      break;
+    case "Motivo 69":
+      opciones.textContent = "Te amo porque tu presencia ilumina todo";
+      break;
+    case "Motivo 70":
+      opciones.textContent = "Te amo por ser una cajita de sorpresas";
+      break;
+    case "Motivo 71":
+      opciones.textContent = "Te amo por tus lindas manos";
+      break;
+    case "Motivo 72":
+      opciones.textContent = "Te amo porque mi vida es tuya";
+      break;
+    case "Motivo 73":
+      opciones.textContent = "Te amo por enseñarme de ferreteria";
+      break;
+    case "Motivo 74":
+      opciones.textContent = "Te amo porque contigo solo eres tu y no hay nada mas";
+      break;
+    case "Motivo 75":
+      opciones.textContent = "Te amo por como te preocupas por mi";
+      break;
+    case "Motivo 76":
+      opciones.textContent = "Te amo porque por ti vale la pena vivir";
+      break;
+    case "Motivo 77":
+      opciones.textContent = "Te amo porque siempre sabias como calmarme";
+      break;
+    case "Motivo 78":
+      opciones.textContent = "Te amo por las veces que me impulsaste a continuar";
+      break;
+    case "Motivo 79":
+      opciones.textContent = "Te amo por tus compartirme a tus familias";
+      break;
+    case "Motivo 80":
+      opciones.textContent = "Te amo por haber hecho linda mi vida";
+      break;
+    case "Motivo 81":
+      opciones.textContent = "Te amo por ser mi parte ordenada";
+      break;
+    case "Motivo 82":
+      opciones.textContent = "Te amo porque me hiciste mas humano";
+      break;
+    case "Motivo 83":
+      opciones.textContent = "Te amo porque contigo aprendi a amar";
+      break;
+    case "Motivo 84":
+      opciones.textContent = "Te amo por amarme";
+      break;
+    case "Motivo 85":
+      opciones.textContent = "Te amo por tu forma madura de actuar cuando es necesario";
+      break;
+    case "Motivo 86":
+      opciones.textContent = "Te amo por siempre impulsarme a continuar";
+      break;
+    case "Motivo 87":
+      opciones.textContent = "Te amo porque contigo solo hay dias lindos";
+      break;
+    case "Motivo 88":
+      opciones.textContent = "Te amo por tu alegria diaria";
+      break;
+    case "Motivo 89":
+      opciones.textContent = "Te amo porque se que puedes con todo";
+      break;
+    case "Motivo 90":
+      opciones.textContent = "Te amo porque me haces sentir que puedo con todo";
+      break;
+    case "Motivo 91":
+      opciones.textContent = "Te amo por ser mi razon de levantarme";
+      break;
+    case "Motivo 92":
+      opciones.textContent = "Te amo por hacerme sentir amado";
+      break;
+        case "Motivo 93":
+      opciones.textContent = "Te amo por cada lágrima que compartimos";
+      break;
+    case "Motivo 94":
+      opciones.textContent = "Te amo por la forma en que me acariciabas el cabello";
+      break;
+    case "Motivo 95":
+      opciones.textContent = "Te amo por las veces que me hiciste reír hasta llorar";
+      break;
+    case "Motivo 96":
+      opciones.textContent = "Te amo por cada mensaje de buenos días y buenas noches";
+      break;
+    case "Motivo 97":
+      opciones.textContent = "Te amo por los sueños que compartimos";
+      break;
+    case "Motivo 98":
+      opciones.textContent = "Te amo por las veces que me diste paz";
+      break;
+    case "Motivo 99":
+      opciones.textContent = "Te amo por cada comida que comimos juntos";
+      break;
+    case "Motivo 100":
+      opciones.textContent = "Te amo por cada paseo bajo la lluvia";
+      break;
+    case "Motivo 101":
+      opciones.textContent = "Te amo por los días en que solo existíamos tú y yo";
+      break;
+    case "Motivo 102":
+      opciones.textContent = "Te amo por la manera en que me mirabas cuando pensabas que no me daba cuenta";
+      break;
+    case "Motivo 103":
+      opciones.textContent = "Te amo por cada promesa que hicimos";
+      break;
+    case "Motivo 104":
+      opciones.textContent = "Te amo por la manera en que me hiciste crecer";
+      break;
+    case "Motivo 105":
+      opciones.textContent = "Te amo por cada vez que bailamos juntos";
+      break;
+    case "Motivo 106":
+      opciones.textContent = "Te amo por cada foto que guardaste de nosotros";
+      break;
+    case "Motivo 107":
+      opciones.textContent = "Te amo por el amor que me enseñaste a sentir";
+      break;
+    case "Motivo 108":
+      opciones.textContent = "Te amo por cada carta que escribiste para mí";
+      break;
+    case "Motivo 109":
+      opciones.textContent = "Te amo por cada vez que me diste tu mano";
+      break;
+    case "Motivo 110":
+      opciones.textContent = "Te amo por cada canción que me dedicaste";
+      break;
+    case "Motivo 111":
+      opciones.textContent = "Te amo por la seguridad que sentía a tu lado";
+      break;
+    case "Motivo 112":
+      opciones.textContent = "Te amo por la felicidad que me diste";
+      break;
+    case "Motivo 113":
+      opciones.textContent = "Te amo por cada noche en la que hablamos hasta dormirnos";
+      break;
+    case "Motivo 114":
+      opciones.textContent = "Te amo por cada risa compartida";
+      break;
+    case "Motivo 115":
+      opciones.textContent = "Te amo por la magia de tus abrazos";
+      break;
+    case "Motivo 116":
+      opciones.textContent = "Te amo por las veces que cuidaste de mí";
+      break;
+    case "Motivo 117":
+      opciones.textContent = "Te amo por la forma en que me hiciste sentir en casa";
+      break;
+    case "Motivo 118":
+      opciones.textContent = "Te amo por cada lugar que se volvió especial contigo";
+      break;
+    case "Motivo 119":
+      opciones.textContent = "Te amo por cada despedida que dolía porque significaba cuánto importabas";
+      break;
+    case "Motivo 120":
+      opciones.textContent = "Te amo porque aunque ya no estemos juntos, una parte de mí siempre te llevará dentro";
+      break;
+    case "Motivo 121":
+      opciones.textContent = "Te amo por la paciencia que tuviste conmigo";
+      break;
+    case "Motivo 122":
+      opciones.textContent = "Te amo por cada sorpresa que me diste";
+      break;
+    case "Motivo 123":
+      opciones.textContent = "Te amo por las veces que me hiciste sentir especial";
+      break;
+    case "Motivo 124":
+      opciones.textContent = "Te amo por cada secreto que compartimos";
+      break;
+    case "Motivo 125":
+      opciones.textContent = "Te amo por los abrazos largos que me reconfortaban";
+      break;
+    case "Motivo 126":
+      opciones.textContent = "Te amo por la confianza que depositaste en mí";
+      break;
+    case "Motivo 127":
+      opciones.textContent = "Te amo porque me enseñaste a amar sin miedo";
+      break;
+    case "Motivo 128":
+      opciones.textContent = "Te amo porque cada momento contigo fue un regalo";
+      break;
+    case "Motivo 129":
+      opciones.textContent = "Te amo porque aún en el tiempo, sigues en mi corazón";
+      break;
+    case "Motivo 130":
+      opciones.textContent = "Te amo por la forma en que tus besos detenían el tiempo";
+      break;
+    case "Motivo 131":
+      opciones.textContent = "Te amo por cada abrazo que me hizo sentir en casa";
+      break;
+    case "Motivo 132":
+      opciones.textContent = "Te amo por cada aventura que vivimos juntos";
+      break;
+    case "Motivo 133":
+      opciones.textContent = "Te amo por las veces que me hiciste ver la vida con otros ojos";
+      break;
+    case "Motivo 134":
+      opciones.textContent = "Te amo por los pequeños detalles que tenías conmigo";
+      break;
+    case "Motivo 135":
+      opciones.textContent = "Te amo porque en tus brazos el mundo desaparecía";
+      break;
+    case "Motivo 136":
+      opciones.textContent = "Te amo por cada caricia";
+      break;
+    case "Motivo 137":
+      opciones.textContent = "Te amo por cada vez que me hiciste sentir seguro";
+      break;
+    case "Motivo 138":
+      opciones.textContent = "Te amo por los días que convertiste en especiales";
+      break;
+    case "Motivo 139":
+      opciones.textContent = "Te amo por las noches en las que nos quedamos hablando sin parar";
+      break;
+    case "Motivo 140":
+      opciones.textContent = "Te amo por enseñarme el significado del amor incondicional";
+      break;
+    case "Motivo 141":
+      opciones.textContent = "Te amo por cada instante que me hiciste sentir único";
+      break;
+    case "Motivo 142":
+      opciones.textContent = "Te amo por los pequeños gestos que alegraban mis días";
+      break;
+    case "Motivo 143":
+      opciones.textContent = "Te amo por cada vez que me recordaste lo valioso que soy";
+      break;
+    case "Motivo 144":
+      opciones.textContent = "Te amo por cada sacrificio que hiciste por mí";
+      break;
+    case "Motivo 145":
+      opciones.textContent = "Te amo por las veces que me motivaste a ser mejor";
+      break;
+    case "Motivo 146":
+      opciones.textContent = "Te amo porque fuiste mi paz en medio del caos";
+      break;
+    case "Motivo 147":
+      opciones.textContent = "Te amo porque me enseñaste a confiar nuevamente";
+      break;
+    case "Motivo 148":
+      opciones.textContent = "Te amo por cada amanecer que disfrutamos juntos";
+      break;
+    case "Motivo 149":
+      opciones.textContent = "Te amo porque en tus palabras encontraba consuelo";
+      break;
+    case "Motivo 150":
+      opciones.textContent = "Te amo por la ternura en cada uno de tus besos";
+      break;
+    case "Motivo 151":
+      opciones.textContent = "Te amo porque me enseñaste a ver la belleza en lo simple";
+      break;
+    case "Motivo 152":
+      opciones.textContent = "Te amo por cada risa que nos unió aún más";
+      break;
+    case "Motivo 153":
+      opciones.textContent = "Te amo por cada foto que guarda nuestros recuerdos";
+      break;
+    case "Motivo 154":
+      opciones.textContent = "Te amo por los abrazos que me reconstruyeron";
+      break;
+    case "Motivo 155":
+      opciones.textContent = "Te amo por las veces que fuiste mi refugio";
+      break;
+    case "Motivo 156":
+      opciones.textContent = "Te amo por cada canción que me hace pensar en ti";
+      break;
+    case "Motivo 157":
+      opciones.textContent = "Te amo porque tu amor me llenó de esperanza";
+      break;
+    case "Motivo 158":
+      opciones.textContent = "Te amo porque siempre encontrabas la forma de hacerme sonreír";
+      break;
+    case "Motivo 159":
+      opciones.textContent = "Te amo porque nunca dejaste de luchar por nosotros";
+      break;
+    case "Motivo 160":
+      opciones.textContent = "Te amo porque hiciste de cada despedida un 'hasta pronto'";
+      break;
+    case "Motivo 161":
+      opciones.textContent = "Te amo por los gatitos'";
+      break;
+    case "Motivo 162":
+      opciones.textContent = "Te amo porque cada día a tu lado era un regalo";
+      break;
+    case "Motivo 163":
+      opciones.textContent = "Te amo por cada secreto que compartimos";
+      break;
+    case "Motivo 164":
+      opciones.textContent = "Te amo por cada vez que me hiciste sentir invencible";
+      break;
+    case "Motivo 165":
+      opciones.textContent = "Te amo porque tu amor era mi mayor fortaleza";
+      break;
+    case "Motivo 166":
+      opciones.textContent = "Te amo por cada gesto que me recordaba lo especial que soy para ti";
+      break;
+    case "Motivo 167":
+      opciones.textContent = "Te amo porque me hiciste sentir amado como nunca antes";
+      break;
+    case "Motivo 168":
+      opciones.textContent = "Te amo por cada mirada que nos lo decía todo";
+      break;
+    case "Motivo 169":
+      opciones.textContent = "Te amo porque hiciste de lo cotidiano algo extraordinario";
+      break;
+    case "Motivo 170":
+      opciones.textContent = "Te amo por cada viaje que soñamos juntos";
+      break;
+    case "Motivo 171":
+      opciones.textContent = "Te amo por la paciencia con la que me entendiste";
+      break;
+    case "Motivo 172":
+      opciones.textContent = "Te amo por cada día en que tu amor fue mi refugio";
+      break;
+    case "Motivo 173":
+      opciones.textContent = "Te amo porque contigo aprendí lo que es el amor verdadero";
+      break;
+    case "Motivo 174":
+      opciones.textContent = "Te amo por cada momento que me hiciste sentir completo";
+      break;
+    case "Motivo 175":
+      opciones.textContent = "Te amo por la magia que trajiste a mi vida";
+      break;
+    case "Motivo 176":
+      opciones.textContent = "Te amo porque me mostraste lo hermoso que es amar sin miedo";
+      break;
+    case "Motivo 177":
+      opciones.textContent = "Te amo por cada caricia que me llenó el alma";
+      break;
+    case "Motivo 178":
+      opciones.textContent = "Te amo porque cada despedida dolía, pero también fortalecía nuestro amor";
+      break;
+    case "Motivo 179":
+      opciones.textContent = "Te amo porque hiciste de mi mundo un lugar mejor";
+      break;
+    case "Motivo 180":
+      opciones.textContent = "Te amo por cada vez que me recordaste mi propio valor";
+      break;
+    case "Motivo 181":
+      opciones.textContent = "Te amo por cada noche en la que soñé contigo";
+      break;
+    case "Motivo 182":
+      opciones.textContent = "Te amo porque fuiste la historia más bonita que viví";
+      break;
+    case "Motivo 183":
+      opciones.textContent = "Te amo por cada abrazo que me devolvió la calma";
+      break;
+    case "Motivo 184":
+      opciones.textContent = "Te amo por cada mensaje que me hizo sonreír";
+      break;
+    case "Motivo 185":
+      opciones.textContent = "Te amo porque siempre encontrabas la manera de sorprenderme";
+      break;
+    case "Motivo 186":
+      opciones.textContent = "Te amo porque me diste el amor que nunca supe que necesitaba";
+      break;
+    case "Motivo 187":
+      opciones.textContent = "Te amo porque nuestro amor fue real en cada momento";
+      break;
+    case "Motivo 188":
+      opciones.textContent = "Te amo porque cada instante contigo fue un tesoro";
+      break;
+    case "Motivo 189":
+      opciones.textContent = "Te amo por cada sonrisa que me regalaste";
+      break;
+    case "Motivo 190":
+      opciones.textContent = "Te amo por cada vez que me hiciste ver lo bueno en mí";
+      break;
+    case "Motivo 191":
+      opciones.textContent = "Te amo por cada susurro de amor que me diste";
+      break;
+    case "Motivo 192":
+      opciones.textContent = "Te amo por cada vez que hicimos el amor";
+      break;
+    case "Motivo 193":
+      opciones.textContent = "Te amo porque hiciste que cada segundo contigo valiera la pena";
+      break;
+    case "Motivo 194":
+      opciones.textContent = "Te amo porque en ti encontre una familia";
+      break;
+    case "Motivo 195":
+      opciones.textContent = "Te amo por nuestra futura familia";
+      break;
+    case "Motivo 196":
+      opciones.textContent = "Te amo porque nuestra familia nunca fue falsa";
+      break;
+    case "Motivo 197":
+      opciones.textContent = "Te amo por quedarte conmigo sin importar nada";
+      break;
+    case "Motivo 198":
+      opciones.textContent = "Te amo por los calcetines que compramos para nuestros hijos";
+      break;
+    case "Motivo 199":
+      opciones.textContent = "Te amo por cada vez que fuimos una sola vida";
+      break;
+    case "Motivo 200":
+      opciones.textContent = "Te amo por tu forma tan unica de amarme y no, no hay ni una razon para irme, no quiero irme, nunca quise hacerlo, peroname por hacerlo y esta bien si ya no me queires en tu vida, lo entiendo y lo acepto, pero necesitaba que supieras esto, perdon por cada una de las cosas que te dije estando enojado, por cada una de mis acciones que fueron impulsivas, por todas las citas que arruine por no mezclar entornos, por cada vez que te quite las ganas de amarme, por cada vez que te hice llorar, por todas y cada una de las cosas que alguna vez te hicieron sentir insegura, por todas las veces que te grite, por las veces que justifique mis actos, por todas las cosas que hice y hago mal, trato de cambiar dia con dia, solo para poder oirte decir que me amas otra vez, necesito tu amor, te necesito a ti, sin ti mi vida sencillamente no tiene colores, no tiene risas, no es nada igual, y no quiero a nadie mas, nadie es como tu, tu siempre seras tu y esa es la ultima razon de esta lista, te amo por que eres tu, cada detalle de ti lo amo por que eso hace a sandra, por que eso eres tu. Te amo y perdon";
+      break;
+    default:
+      console.log("Opción no válida");
+      break;
+  }
+});
+
+    </script>
+
+</body>
+</html>
