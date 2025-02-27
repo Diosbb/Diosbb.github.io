@@ -1,0 +1,31 @@
+img{
+      margin: auto;
+  }
+body{
+    background-image: url("../images/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.boton{
+    text-align: center;
+    margin-top: 20px;
+}
+button {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white; /* Texto en blanco */
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(5px);
+}
+button:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform:scale(1.1);
+}
+.container{
+    margin-top: 100px;
+}
