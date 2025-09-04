@@ -1,21 +1,624 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="Images/patito.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/icono.png">
-    <title>Menu</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <script src="index.js" defer></script>
+    <title>Línea de Tiempo: Avances de la Inteligencia Artificial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .filter-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #3498db, #9b59b6);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: calc(50% + 30px);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: calc(50% + 30px);
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            border: 4px solid white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .date {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+        }
+
+        .category {
+            display: inline-block;
+            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .event-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-description {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .event-impact {
+            background: #ecf0f1;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            font-style: italic;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(odd) .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+            }
+
+            .timeline-marker {
+                left: 30px;
+            }
+
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <button onclick="cita1()">
-            Cita 1
-        </button>
-        <button onclick="cita2()">
-            Cita 2
-        </button>
-    </header>
+    <div class="header">
+        <h1>🤖 Línea de Tiempo: Avances de la Inteligencia Artificial</h1>
+        <p>Explorando la evolución de las diferentes áreas de la IA a través del tiempo</p>
+    </div>
+
+    <div class="container">
+        <div class="filter-section">
+            <h3 style="text-align: center; margin-bottom: 1rem; color: #2c3e50;">Filtrar por Área de la IA:</h3>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">Todas las Áreas</button>
+                <button class="filter-btn" data-category="robotica">Robótica</button>
+                <button class="filter-btn" data-category="redes">Redes Neuronales</button>
+                <button class="filter-btn" data-category="vision">Visión Artificial</button>
+                <button class="filter-btn" data-category="logica">Lógica Difusa</button>
+                <button class="filter-btn" data-category="nlp">Procesamiento de Lenguaje Natural</button>
+                <button class="filter-btn" data-category="expertos">Sistemas Expertos</button>
+                <button class="filter-btn" data-category="ml">Machine Learning</button>
+                <button class="filter-btn" data-category="evolutivo">Cómputo Evolutivo</button>
+                <button class="filter-btn" data-category="geneticos">Algoritmos Genéticos</button>
+            </div>
+        </div>
+
+        
+
+        <div class="timeline" id="timeline">
+            <!-- Redes Neuronales -->
+            <div class="timeline-item" data-category="redes">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="date">1943</div>
+                    <div class="category">Redes Neuronales</div>
+                    <div class="event-title">Primera Red Neuronal Artificial</div>
+                    <div class="event-description">
+                        McCulloch y Pitts crean el primer modelo matemático de una red neuronal artificial, basado en el funcionamiento de las neuronas biológicas.
+                    </div>
+                    <div class="event-impact">
+                        <strong>Impacto:</strong> Sentó las bases para el desarrollo de todas las redes neuronales modernas.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inicio de la IA -->
+            <div class="timeline-item" data-category="general">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="date">1950</div>
+                    <div class="category">Fundamentos de IA</div>
+                    <div class="event-title">Test de Turing</div>
+                    <div class="event-description">
+                        Alan Turing propone el famoso "Test de Turing" como criterio para determinar si una máquina puede demostrar comportamiento inteligente equivalente al humano.
+                    </div>
+                    <div class="event-impact">
+                        <strong>Impacto:</strong> Estableció las bases filosóficas para evaluar la inteligencia artificial y sigue siendo relevante hoy en día.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Robótica -->
+            <div class="timeline-item" data-category="robotica">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="date">1961</div>
+                    <div class="category">Robótica</div>
+                    <div class="event-title">Primer Robot Industrial - Unimate</div>
+                    <div class="event-description">
+                        Se instala el primer robot industrial Unimate en una planta de General Motors, marcando el inicio de la automatización robótica en la industria.
+                    </div>
+                    <div class="event-impact">
+                        <strong>Impacto:</strong> Revolucionó la manufactura y estableció la robótica como campo industrial viable.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sistemas Expertos -->
+            <div class="timeline-item" data-category="expertos">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="date">1965</div>
+                    <div class="category">Sistemas Expertos</div>
+                    <div class="event-title">DENDRAL - Primer Sistema Experto</div>
+                    <div class="event-description">
+                        Se desarrolla DENDRAL en Stanford, el primer sistema experto exitoso que podía determinar estructuras moleculares a partir de espectrometría de masas.
+                    </div>
+                    <div class="event-impact">
+                        <strong>Impacto:</strong> Demostró que las máquinas podían realizar tareas que requerían conocimiento especializado.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lógica Difusa -->
+            <div class="timeline-item" data-category="logica">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="date">1965</div>
+                    <div class="category">Lógica Difusa</div>
+                    <div class="event-title">Introducción de la Lógica Difusa</div>
+                    <div class="event-description">
+                        Lotfi Zadeh introduce el concepto de lógica difusa (fuzzy logic), permitiendo el razonamiento con incertidumbre y valores de verdad parciales.
+                    </div>
+                    <div class="event-impact">
+                        <strong>Impacto:</strong> Revolucionó el control de sistemas y la toma de decisiones bajo incertidumbre.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Algoritmos Genéticos -->
+            <div class="timeline-item" data-category="geneticos">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="date">1975</div>
+                    <div class="category">Algoritmos Genéticos</div>
+                    <div class="event-title">Algoritmos Genéticos de Holland</div>
+                    <div class="event-description">
+                        John Holland publica "Adaptation in Natural and Artificial Systems", estableciendo las bases de los algoritmos genéticos inspirados en la evolución natural.
+                    </div>
+                    <div class="event-impact">
+                        <strong>Impacto:</strong> Creó un nuevo paradigma de optimización basado en principios evolutivos.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Machine Learning -->
+            <div class="timeline-item" data-category="ml">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="date">1986</div>
+                    <div class="category">Machine Learning</div>
+                    <div class="event-title">Backpropagation</div>
+                    <div class="event-description">
+                        Rumelhart, Hinton y Williams popularizan el algoritmo de backpropagation, permitiendo el entrenamiento efectivo de redes neuronales multicapa.
+                    </div>
+                    <div class="event-impact">
+                        <strong>Impacto:</strong> Hizo posible el deep learning moderno y el renacimiento de las redes neuronales.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visión Artificial -->
+            <div class="timeline-item" data-category="vision">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="date">1987</div>
+                    <div class="category">Visión Artificial</div>
+                    <div class="event-title">Redes Neuronales Convolucionales</div>
+                    <div class="event-description">
+                        Yann LeCun desarrolla las primeras redes neuronales convolucionales (CNN) exitosas para reconocimiento de dígitos escritos a mano.
+                    </div>
+                    <div class="event-impact">
+                        <strong>Impacto:</strong> Estableció la arquitectura fundamental para la visión por computadora moderna.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cómputo Evolutivo -->
+            <div class="timeline-item" data-category="evolutivo">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="date">1990</div>
+                    <div class="category">Cómputo Evolutivo</div>
+                    <div class="event-title">Programación Genética</div>
+                    <div class="event-description">
+                        John Koza introduce la programación genética, extendiendo los algoritmos genéticos para evolucionar programas de computadora completos.
+                    </div>
+                    <div class="event-impact">
+                        <strong>Impacto:</strong> Permitió la evolución automática de soluciones de software complejas.
+                    </div>
+                </div>
+            </div>
+
+            <!-- NLP -->
+            <div class="timeline-item" data-category="nlp">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="date">1990</div>
+                    <div class="category">Procesamiento de Lenguaje Natural</div>
+                    <div class="event-title">Modelos Estadísticos en NLP</div>
+                    <div class="event-description">
+                        Se adoptan masivamente los enfoques estadísticos en NLP, reemplazando los sistemas basados en reglas con modelos probabilísticos.
+                    </div>
+                    <div class="event-impact">
+                        <strong>Impacto:</strong> Mejoró significativamente la precisión en tareas como traducción y reconocimiento de voz.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deep Learning -->
+            <div class="timeline-item" data-category="ml redes">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="date">2006</div>
+                    <div class="category">Deep Learning</div>
+                    <div class="event-title">Renacimiento del Deep Learning</div>
+                    <div class="event-description">
+                        Geoffrey Hinton y su equipo demuestran que las redes neuronales profundas pueden ser entrenadas efectivamente, iniciando la era del deep learning.
+                    </div>
+                    <div class="event-impact">
+                        <strong>Impacto:</strong> Revolucionó la IA y permitió avances sin precedentes en múltiples campos.
+                    </div>
+                </div>
+            </div>
+
+            <!-- GPT y Transformers -->
+            <div class="timeline-item" data-category="nlp">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="date">2017</div>
+                    <div class="category">Procesamiento de Lenguaje Natural</div>
+                    <div class="event-title">Arquitectura Transformer</div>
+                    <div class="event-description">
+                        Google presenta el paper "Attention Is All You Need", introduciendo la arquitectura Transformer que revoluciona el procesamiento de lenguaje natural.
+                    </div>
+                    <div class="event-impact">
+                        <strong>Impacto:</strong> Habilitó el desarrollo de modelos como GPT, BERT y ChatGPT.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Robótica Moderna -->
+            <div class="timeline-item" data-category="robotica">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="date">2020</div>
+                    <div class="category">Robótica</div>
+                    <div class="event-title">Robots Humanoides Avanzados</div>
+                    <div class="event-description">
+                        Boston Dynamics presenta Atlas realizando parkour, demostrando avances extraordinarios en robótica móvil y control dinámico.
+                    </div>
+                    <div class="event-impact">
+                        <strong>Impacto:</strong> Demostró el potencial de la robótica para aplicaciones del mundo real.
+                    </div>
+                </div>
+            </div>
+
+            <!-- IA Generativa -->
+            <div class="timeline-item" data-category="ml vision nlp">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="date">2022</div>
+                    <div class="category">IA Generativa</div>
+                    <div class="event-title">Era de la IA Generativa</div>
+                    <div class="event-description">
+                        Lanzamiento de ChatGPT, DALL-E 2, y Stable Diffusion, democratizando el acceso a IA generativa avanzada para texto e imágenes.
+                    </div>
+                    <div class="event-impact">
+                        <strong>Impacto:</strong> Transformó la percepción pública de la IA y aceleró su adopción masiva.
+                    </div>
+                </div>
+            </div>
+
+            <!-- IA Multimodal -->
+            <div class="timeline-item" data-category="ml vision nlp">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="date">2023</div>
+                    <div class="category">IA Multimodal</div>
+                    <div class="event-title">GPT-4 y Modelos Multimodales</div>
+                    <div class="event-description">
+                        Lanzamiento de GPT-4 con capacidades multimodales (texto e imágenes) y otros modelos que integran múltiples modalidades de datos.
+                    </div>
+                    <div class="event-impact">
+                        <strong>Impacto:</strong> Marcó el inicio de sistemas de IA que pueden procesar y generar contenido en múltiples formatos simultáneamente.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: white;
+        padding: 2rem;
+        margin-top: 3rem;
+        text-align: center;
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+    ">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h3 style="margin-bottom: 1rem; color: #ecf0f1; font-size: 1.3rem;">📋 Información Académica</h3>
+            <div style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1rem;
+                margin-top: 1.5rem;
+            ">
+                <div style="
+                    background: rgba(255,255,255,0.1);
+                    padding: 1rem;
+                    border-radius: 10px;
+                    border-left: 4px solid #3498db;
+                ">
+                    <strong style="color: #3498db;">👨‍🎓 Alumno:</strong><br>
+                    Daniel Díaz Rojas
+                </div>
+                <div style="
+                    background: rgba(255,255,255,0.1);
+                    padding: 1rem;
+                    border-radius: 10px;
+                    border-left: 4px solid #e74c3c;
+                ">
+                    <strong style="color: #e74c3c;">🎯 Grupo:</strong><br>
+                    7A ISC
+                </div>
+                <div style="
+                    background: rgba(255,255,255,0.1);
+                    padding: 1rem;
+                    border-radius: 10px;
+                    border-left: 4px solid #f39c12;
+                ">
+                    <strong style="color: #f39c12;">📚 Materia:</strong><br>
+                    Inteligencia Artificial
+                </div>
+                <div style="
+                    background: rgba(255,255,255,0.1);
+                    padding: 1rem;
+                    border-radius: 10px;
+                    border-left: 4px solid #9b59b6;
+                ">
+                    <strong style="color: #9b59b6;">👩‍🏫 Docente:</strong><br>
+                    Dra. Maria Petra Paredes Xochihua
+                </div>
+            </div>
+            <div style="
+                margin-top: 2rem;
+                padding-top: 1.5rem;
+                border-top: 2px solid rgba(255,255,255,0.1);
+            ">
+                <div style="
+                    background: rgba(255,255,255,0.1);
+                    padding: 1.2rem;
+                    border-radius: 12px;
+                    border: 2px solid rgba(52, 152, 219, 0.3);
+                ">
+                    <strong style="color: #3498db; font-size: 1.1rem;">🏛️ Institución:</strong><br>
+                    <span style="font-size: 1.1rem; font-weight: 500;">Instituto Tecnológico Superior de San Martín Texmelucan</span>
+                </div>
+            </div>
+            <div style="
+                margin-top: 1.5rem;
+                padding-top: 1rem;
+                border-top: 1px solid rgba(255,255,255,0.1);
+                color: #bdc3c7;
+                font-size: 0.9rem;
+            ">
+                <p>📅 Práctica #1 - Introducción a la Inteligencia Artificial</p>
+                <p>🤖 Línea de Tiempo: Avances de los Enfoques de la IA</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sistema de filtrado
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const timelineItems = document.querySelectorAll('.timeline-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remover clase active de todos los botones
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Agregar clase active al botón clickeado
+                button.classList.add('active');
+
+                const category = button.getAttribute('data-category');
+                
+                timelineItems.forEach(item => {
+                    if (category === 'all') {
+                        item.classList.remove('hidden');
+                    } else {
+                        const itemCategories = item.getAttribute('data-category').split(' ');
+                        if (itemCategories.includes(category)) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    }
+                });
+
+                // Reanimat items visibles
+                const visibleItems = document.querySelectorAll('.timeline-item:not(.hidden)');
+                visibleItems.forEach((item, index) => {
+                    item.style.animation = 'none';
+                    setTimeout(() => {
+                        item.style.animation = `fadeInUp 0.6s ease forwards`;
+                        item.style.animationDelay = `${index * 0.1}s`;
+                    }, 10);
+                });
+            });
+        });
+
+        // Animación inicial
+        window.addEventListener('load', () => {
+            timelineItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+
+        // Efectos de hover mejorados
+        timelineItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'scale(1.02)';
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'scale(1)';
+            });
+        });
+    </script>
 </body>
 </html>
